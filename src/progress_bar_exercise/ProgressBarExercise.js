@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Exercise from "../exercise/Exercise";
 import './ProgressBar.scss'
 
@@ -19,11 +19,35 @@ export default ProgressBarExercise;
 // ----------------------------------------------------------------------------------
 
 export const Solution = () => {
+  const [progress, setProgress] = useState(0);
+  const [requestActive, setRequestActive] = useState(false);
+
+  useEffect(() => {
+    if(!requestActive) return
+    const interval = setInterval(() => {
+      if(progress <= 90) {
+        const intervalProgress = 90 / 15;
+        setProgress((prevProgress) => Math.min(prevProgress + intervalProgress, 90));
+      }
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [requestActive]);
+
+  function startRequest() {
+    setProgress(0);
+    setRequestActive(true);
+  }
+
+  function endRequest() {
+    setRequestActive(false);
+    setProgress(100);
+  }
+
   return (
     <div className="solution_container">
       <div className="button_group">
-        <button className="btn btn_green" data-testid="request-button-start">Start Request</button>
-        <button className="btn btn_red" data-testid="request-button-start">End Request</button>
+        <button className="btn btn_green" data-testid="request-button-start" onClick={() => startRequest()}>Start Request</button>
+        <button className="btn btn_red" data-testid="request-button-start" onClick={() => endRequest()}>End Request</button>
       </div>
     </div>
   )
