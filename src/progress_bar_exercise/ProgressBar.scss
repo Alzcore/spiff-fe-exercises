@@ -1,3 +1,5 @@
+@import "../shared_styles/colors.scss";
+
 .solution_container {
     display: flex;
     flex-direction: column;
@@ -6,4 +8,14 @@
 .button_group {
     display: flex;
     justify-content: space-around;
+}
+
+.btn {
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 12px 20px 12px 20px;
+    border: 1px solid $blue;
+    border-radius: 25px;
+    align-self: center;
+    margin: auto;
 }
