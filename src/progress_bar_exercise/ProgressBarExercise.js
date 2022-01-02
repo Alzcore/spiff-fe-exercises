@@ -47,7 +47,7 @@ export const Solution = () => {
     <div className="solution_container">
       <div className="button_group">
         <button className="btn btn_green" data-testid="request-button-start" onClick={() => startRequest()} disabled={requestActive}>{requestActive ? "Loading..." : "Start Request"}</button>
-        <button className="btn btn_red" data-testid="request-button-start" onClick={() => endRequest()} disabled={!requestActive}>End Request</button>
+        <button className="btn btn_red" data-testid="request-button-end" onClick={() => endRequest()} disabled={!requestActive}>End Request</button>
       </div>
     </div>
   )
