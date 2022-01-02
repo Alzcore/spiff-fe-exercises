@@ -22,7 +22,8 @@ export const Solution = () => {
   return (
     <div className="solution_container">
       <div className="button_group">
-
+        <button className="btn" data-testid="request-button-start">Start Request</button>
+        <button className="btn" data-testid="request-button-start">End Request</button>
       </div>
     </div>
   )
