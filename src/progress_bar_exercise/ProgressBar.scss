@@ -39,4 +39,9 @@
             box-shadow: 0 0 0 2px $red;
         }  
     }
+    &:disabled {
+        border-color: $gray;
+        color: $gray;
+        cursor: default;
+    }
 }
