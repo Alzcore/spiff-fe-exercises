@@ -55,6 +55,7 @@ progress {
     margin-top: 10px;
     margin-bottom: 10px;
     &[value]::-webkit-progress-value {
+        transition: width 1.0s linear;
         background: linear-gradient(to right, $sunrise, $red);  
     }
     &::-webkit-progress-bar {
