@@ -68,4 +68,10 @@ progress {
     &[active="true"] {
         opacity: 1;
     }
+    &[value = "100"] {
+        transition: opacity 1s linear;
+        // 1 second to finish value transition + 3 second delay
+        transition-delay: 4s;
+        opacity: 0;
+    }
 }
