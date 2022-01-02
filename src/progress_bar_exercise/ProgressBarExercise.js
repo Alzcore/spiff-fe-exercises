@@ -46,7 +46,7 @@ export const Solution = () => {
   return (
     <div className="solution_container">
       <div className="button_group">
-        <button className="btn btn_green" data-testid="request-button-start" onClick={() => startRequest()}>Start Request</button>
+        <button className="btn btn_green" data-testid="request-button-start" onClick={() => startRequest()}>{requestActive ? "Loading..." : "Start Request"}</button>
         <button className="btn btn_red" data-testid="request-button-start" onClick={() => endRequest()}>End Request</button>
       </div>
     </div>
