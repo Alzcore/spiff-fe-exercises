@@ -58,6 +58,9 @@ progress {
         transition: width 1.0s linear;
         background: linear-gradient(to right, $sunrise, $red);  
     }
+    &[value]::-moz-progress-bar {
+        background: linear-gradient(to right, $sunrise, $red);  
+    }
     &::-webkit-progress-bar {
         background: $gray-lighter;
     }
