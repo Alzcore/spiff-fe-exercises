@@ -17,6 +17,6 @@ export default ProgressBarExercise;
 
 // ----------------------------------------------------------------------------------
 
-const Solution = () => {
+export const Solution = () => {
   return <div>Add solution here</div>;
 };
