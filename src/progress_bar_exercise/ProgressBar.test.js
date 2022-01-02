@@ -47,6 +47,24 @@ test("Ending the request sets progress to 100%", async () => {
     expect(screen.getByTestId('progress-bar')).toHaveValue(100);
 })
 
+test("Progress slows down around breakpoints", async () => {
+    render(<Solution />);
+    fireEvent.click(screen.getByTestId('request-button-start'));
+
+    // Default breakpoints are [30, 45, 78]
+    // Breakpoints are triggered 6 percent above and below the breakpoint
+    jest.advanceTimersByTime(3000);
+    expect(screen.getByTestId('progress-bar')).not.toHaveClass('breakpoint-reached');
+    jest.advanceTimersByTime(1100);
+    expect(screen.getByTestId('progress-bar')).toHaveClass('breakpoint-reached');
+    jest.advanceTimersByTime(1000);
+    expect(screen.getByTestId('progress-bar')).toHaveClass('breakpoint-reached');
+    jest.advanceTimersByTime(1000);
+    expect(screen.getByTestId('progress-bar')).toHaveClass('breakpoint-reached');
+
+    jest.advanceTimersByTime(4000);
+    expect(screen.getByTestId('progress-bar')).not.toHaveClass('breakpoint-reached');
+})
 afterEach(() => {
     jest.runOnlyPendingTimers()
     jest.useRealTimers()
