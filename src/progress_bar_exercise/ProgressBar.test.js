@@ -48,7 +48,7 @@ test("Ending the request sets progress to 100%", async () => {
 })
 
 test("Progress slows down around breakpoints", async () => {
-    render(<Solution />);
+    render(<ProgressBarExercise />);
     fireEvent.click(screen.getByTestId('request-button-start'));
 
     // Default breakpoints are [30, 45, 78]

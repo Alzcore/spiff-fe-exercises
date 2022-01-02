@@ -21,6 +21,7 @@ export default ProgressBarExercise;
 const Solution = () => {
   const [progress, setProgress] = useState(0);
   const [requestActive, setRequestActive] = useState(false);
+  const [breakpoints, setBreakpoints] = useState([30, 45, 78]);
 
   useEffect(() => {
     if(!requestActive) return
@@ -32,6 +33,18 @@ const Solution = () => {
     }, 1000);
     return () => clearInterval(interval);
   }, [requestActive]);
+
+  useEffect(() => {
+    const thresholdAmount = 6
+    if(breakpoints.find(b => ((progress >= b - thresholdAmount ) && (progress <= b + thresholdAmount)))) {
+      // add class to progress bar
+      document.getElementById('progress-bar').classList.add('breakpoint-reached');
+    }
+    else {
+      // remove class from progress bar
+      document.getElementById('progress-bar').classList.remove('breakpoint-reached');
+    }
+  }, [progress]);
 
   function startRequest() {
     setProgress(0);
