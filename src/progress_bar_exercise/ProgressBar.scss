@@ -76,4 +76,7 @@
             opacity: 0;
         }
     }
+    &.breakpoint-reached::-webkit-progress-value {
+        transition: width 3s ease-out;
+    }
 }
