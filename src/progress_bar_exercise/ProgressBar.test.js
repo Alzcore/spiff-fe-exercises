@@ -38,3 +38,11 @@ test("Progress hangs at 90% at 15 seconds and longer", async () => {
 
     expect(screen.getByTestId('progress-bar')).toHaveAttribute('value', '90');
 })
+
+test("Ending the request sets progress to 100%", async () => {
+    render(<Solution />);
+    fireEvent.click(screen.getByTestId('request-button-start'));
+    jest.advanceTimersByTime(7000);
+    fireEvent.click(screen.getByTestId('request-button-end'));
+    expect(screen.getByTestId('progress-bar')).toHaveValue(100);
+})
