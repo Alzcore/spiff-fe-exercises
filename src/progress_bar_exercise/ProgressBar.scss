@@ -40,6 +40,16 @@
                 box-shadow: 0 0 0 2px $red;
             }  
         }
+        &-purple:not(:disabled) {
+            border-color: $purple;
+            color: $purple;
+            &:hover {
+                box-shadow: 0 0 0 1px $purple;
+            }
+            &:active {
+                box-shadow: 0 0 0 2px $purple;
+            }  
+        }
         &:disabled {
             border-color: $gray;
             color: $gray;
