@@ -18,4 +18,25 @@
     border-radius: 25px;
     align-self: center;
     margin: auto;
+    // Using box-shadow prevents pixel offset when the button is clicked or hovered
+    &_green:not(:disabled) {
+        border-color: $green;
+        color: $green;
+        &:hover {
+            box-shadow: 0 0 0 1px $green;
+        }
+        &:active {
+            box-shadow: 0 0 0 2px $green;
+        }   
+    }
+    &_red:not(:disabled) {
+        border-color: $red;
+        color: $red;
+        &:hover {
+            box-shadow: 0 0 0 1px $red;
+        }
+        &:active {
+            box-shadow: 0 0 0 2px $red;
+        }  
+    }
 }
