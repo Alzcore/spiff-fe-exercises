@@ -67,7 +67,7 @@ test("Progress slows down around breakpoints", async () => {
 })
 
 test("Breakpoints are togglable", async () => {
-    render(<Solution />);
+    render(<ProgressBarExercise />);
 
     fireEvent.click(screen.getByTestId('request-button-start'));
     jest.advanceTimersByTime(4100);
@@ -76,7 +76,9 @@ test("Breakpoints are togglable", async () => {
     fireEvent.click(screen.getByTestId('breakpoint-toggle'));
     jest.advanceTimersByTime(200);
     expect(screen.getByTestId('progress-bar')).not.toHaveClass('breakpoint-reached');
-})afterEach(() => {
+})
+
+afterEach(() => {
     jest.runOnlyPendingTimers()
     jest.useRealTimers()
 })
