@@ -39,11 +39,11 @@ const Solution = () => {
     const thresholdAmount = 6
     if(breakpoints.find(b => ((progress >= b - thresholdAmount ) && (progress <= b + thresholdAmount))) && breakpointsEnabled) {
       // add class to progress bar
-      document.getElementById('progress-bar').classList.add('breakpoint-reached');
+      document.getElementById('progress-bar')?.classList.add('breakpoint-reached');
     }
     else {
       // remove class from progress bar
-      document.getElementById('progress-bar').classList.remove('breakpoint-reached');
+      document.getElementById('progress-bar')?.classList.remove('breakpoint-reached');
     }
   }, [progress, breakpointsEnabled]);
 
@@ -59,7 +59,7 @@ const Solution = () => {
 
   return (
     <div className="solution-container">
-      <progress data-testid="progress-bar" max={100} value={progress} active={requestActive.toString()}/>
+      <progress id="progress-bar" data-testid="progress-bar" max={100} value={progress} active={requestActive.toString()}/>
       <div className="button-group">
         <button className="btn btn-green" data-testid="request-button-start" onClick={() => startRequest()} disabled={requestActive}>{requestActive ? "Loading..." : "Start Request"}</button>
         <button className="btn btn-purple" data-testid="breakpoint-toggle" onClick={() => setBreakpointsEnabled(!breakpointsEnabled)}>{breakpointsEnabled ? "Disable Breakpoints" : "Enable Breakpoints"}</button>
