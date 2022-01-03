@@ -44,11 +44,11 @@ const Solution = () => {
   }
 
   return (
-    <div className="solution_container">
+    <div className="solution-container">
       <progress data-testid="progress-bar" max={100} value={progress} active={requestActive.toString()}/>
-      <div className="button_group">
-        <button className="btn btn_green" data-testid="request-button-start" onClick={() => startRequest()} disabled={requestActive}>{requestActive ? "Loading..." : "Start Request"}</button>
-        <button className="btn btn_red" data-testid="request-button-end" onClick={() => endRequest()} disabled={!requestActive}>End Request</button>
+      <div className="button-group">
+        <button className="btn btn-green" data-testid="request-button-start" onClick={() => startRequest()} disabled={requestActive}>{requestActive ? "Loading..." : "Start Request"}</button>
+        <button className="btn btn-red" data-testid="request-button-end" onClick={() => endRequest()} disabled={!requestActive}>End Request</button>
       </div>
     </div>
   )
