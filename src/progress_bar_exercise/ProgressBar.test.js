@@ -1,17 +1,17 @@
 import React from 'react'
 import { render, screen, fireEvent} from '@testing-library/react'
-import { Solution } from './ProgressBarExercise';
+import ProgressBarExercise from './ProgressBarExercise';
 
 beforeEach(() => {  
     jest.useFakeTimers();
 })
 
-test("Progress bar solution renders", async () => {
-    render(<Solution />);
+test("Progress bar ProgressBarExercise renders", async () => {
+    render(<ProgressBarExercise />);
 })
 
 test("Able to start and end requests", async () => {
-    render(<Solution />);
+    render(<ProgressBarExercise />);
     
     expect(screen.getByTestId('request-button-start')).toBeEnabled();
     expect(screen.getByTestId('request-button-end')).toBeDisabled();
@@ -27,7 +27,7 @@ test("Able to start and end requests", async () => {
 })
 
 test("Progress hangs at 90% at 15 seconds and longer", async () => {
-    render(<Solution />);
+    render(<ProgressBarExercise />);
     fireEvent.click(screen.getByTestId('request-button-start'));
     
     jest.advanceTimersByTime(15000);
@@ -40,9 +40,14 @@ test("Progress hangs at 90% at 15 seconds and longer", async () => {
 })
 
 test("Ending the request sets progress to 100%", async () => {
-    render(<Solution />);
+    render(<ProgressBarExercise />);
     fireEvent.click(screen.getByTestId('request-button-start'));
     jest.advanceTimersByTime(7000);
     fireEvent.click(screen.getByTestId('request-button-end'));
     expect(screen.getByTestId('progress-bar')).toHaveValue(100);
+})
+
+afterEach(() => {
+    jest.runOnlyPendingTimers()
+    jest.useRealTimers()
 })

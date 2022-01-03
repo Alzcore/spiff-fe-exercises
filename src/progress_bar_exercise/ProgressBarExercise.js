@@ -18,7 +18,7 @@ export default ProgressBarExercise;
 
 // ----------------------------------------------------------------------------------
 
-export const Solution = () => {
+const Solution = () => {
   const [progress, setProgress] = useState(0);
   const [requestActive, setRequestActive] = useState(false);
 
