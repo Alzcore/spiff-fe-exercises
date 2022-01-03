@@ -1,0 +1,79 @@
+@import "../shared_styles/colors.scss";
+
+.progress-bar-exercise {
+    .solution-container {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .button-group {
+        display: flex;
+        justify-content: space-around;
+    }
+    
+    .btn {
+        text-transform: uppercase;
+        font-weight: 500;
+        padding: 12px 20px 12px 20px;
+        border: 1px solid $blue;
+        border-radius: 25px;
+        align-self: center;
+        margin: auto;
+        // Using box-shadow prevents pixel offset when the button is clicked or hovered
+        &-green:not(:disabled) {
+            border-color: $green;
+            color: $green;
+            &:hover {
+                box-shadow: 0 0 0 1px $green;
+            }
+            &:active {
+                box-shadow: 0 0 0 2px $green;
+            }   
+        }
+        &-red:not(:disabled) {
+            border-color: $red;
+            color: $red;
+            &:hover {
+                box-shadow: 0 0 0 1px $red;
+            }
+            &:active {
+                box-shadow: 0 0 0 2px $red;
+            }  
+        }
+        &:disabled {
+            border-color: $gray;
+            color: $gray;
+            cursor: default;
+        }
+    }
+    
+    progress {
+        width: 100%;
+        height: 6px;
+        opacity: 0;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        &[value]::-webkit-progress-value {
+            transition: width 1.0s linear;
+            background: linear-gradient(to right, $sunrise, $red);  
+        }
+        &[value]::-moz-progress-bar {
+            background: linear-gradient(to right, $sunrise, $red);  
+        }
+        &::-webkit-progress-bar {
+            background: $gray-lighter;
+        }
+        &[active="true"] {
+            opacity: 1;
+        }
+        &[value = "100"] {
+            transition: opacity 1s linear;
+            // 1 second to finish value transition + 3 second delay
+            transition-delay: 4s;
+            opacity: 0;
+        }
+    }
+}
