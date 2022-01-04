@@ -1,4 +1,5 @@
 @import "../shared_styles/colors.scss";
+$button-colors: (red: $red, green: $green, purple: $purple);
 
 .progress-bar-exercise {
     .solution-container {
@@ -20,42 +21,26 @@
         align-self: center;
         margin: auto;
         // Using box-shadow prevents pixel offset when the button is clicked or hovered
-        &-green:not(:disabled) {
-            border-color: $green;
-            color: $green;
-            &:hover {
-                box-shadow: 0 0 0 1px $green;
-            }
-            &:active {
-                box-shadow: 0 0 0 2px $green;
-            }   
-        }
-        &-red:not(:disabled) {
-            border-color: $red;
-            color: $red;
-            &:hover {
-                box-shadow: 0 0 0 1px $red;
-            }
-            &:active {
-                box-shadow: 0 0 0 2px $red;
-            }  
-        }
-        &-purple:not(:disabled) {
-            border-color: $purple;
-            color: $purple;
-            &:hover {
-                box-shadow: 0 0 0 1px $purple;
-            }
-            &:active {
-                box-shadow: 0 0 0 2px $purple;
-            }  
-        }
+       
         &:disabled {
             border-color: $gray;
             color: $gray;
             cursor: default;
         }
-    }
+        @each $key, $value in $button-colors {
+            &.btn-#{$key}:not(:disabled) {
+                border-color: $value;
+                color: $value;
+                &:hover {
+                    box-shadow: 0 0 0 1px $value;
+                }
+                &:active {
+                    box-shadow: 0 0 0 2px $value;
+                }  
+            }
+        }
+}
+
     
     progress {
         width: 100%;
